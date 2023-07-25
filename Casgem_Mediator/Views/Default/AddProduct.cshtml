@@ -1,0 +1,23 @@
+﻿@model List<Casgem_Mediator.MediatorPattern.Commands.CreateProductCommand>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><br />
+    <form method="post">
+        <label>Ürün Adı</label>
+        <input type="text" name="Name" class="form-control" asp-action="for" />
+        <label>Ürün Stok Sayısı</label>
+        <input type="text" name="Stock" class="form-control" asp-action="for" />
+        <label>Ürün Kategorisi</label>
+        <input type="text" name="Stock" class="form-control" asp-action="for" />
+        <br />
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
