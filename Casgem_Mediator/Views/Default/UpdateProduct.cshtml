@@ -1,0 +1,24 @@
+﻿@model Casgem_Mediator.MediatorPattern.Results.GetProductUpdateByIdQueryResult;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<form method="post">
+    <label>Ürün Adı</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <label>Ürün Marka</label>
+    <input type="text" class="form-control" asp-for="Brand" />
+    <label>Ürün Stok</label>
+    <input type="text" class="form-control" asp-for="Stock" />
+    <label>Ürün Fiyat</label>
+    <input type="text" class="form-control" asp-for="Price" />
+    <label>Ürün Kategori</label>
+    <input type="text" class="form-control" asp-for="Category" />
+    <br />
+    <input type="hidden" asp-for="ProductID" />
+    <button type="submit" class="btn btn-info">Ürünü Güncelle</button>
+</form>

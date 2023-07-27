@@ -8,14 +8,14 @@ namespace Casgem_Mediator.Controllers
 {
     public class DefaultController : Controller
     {
-        private readonly IMediator _meditor;
+        private readonly IMediator _mediator;
         public DefaultController(IMediator meditor)
         {
-            _meditor = meditor;
+            _mediator = meditor;
         }
         public async Task<IActionResult> Index()
         {
-            var values = await _meditor.Send(new GetProductQuery());
+            var values = await _mediator.Send(new GetProductQuery());
             return View(values);
         }
 
@@ -28,12 +28,26 @@ namespace Casgem_Mediator.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(CreateProductCommand command)
         {
-            await _meditor.Send(command);
+            await _mediator.Send(command);
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            await _meditor.Send(new RemoveProductCommand(id));
+            await _mediator.Send(new RemoveProductCommand(id));
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateProduct(int id)
+        {
+            var value = await _mediator.Send(new GetProductUpdateByIdQuery(id));
+            return View(value);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(UpdateProductCommand command)
+        {
+            var value = await _mediator.Send(command);
             return RedirectToAction("Index");
         }
     }
